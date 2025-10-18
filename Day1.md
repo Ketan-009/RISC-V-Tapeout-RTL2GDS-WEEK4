@@ -194,7 +194,7 @@ plot -vdd#branch
 
 </details>
 
-# Learning Outcomes
+## Learning Outcomes
 
 - Understand the physical structure and terminals of an NMOS transistor.
 - Apply first-order equations to model NMOS current-voltage characteristics.
