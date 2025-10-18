@@ -136,8 +136,6 @@ Graphical method to find DC operating point:
 
 ***
 
-*End of `CMOS_Inverter_MOSFET_Physics.md`*
-
 ---
 
 </details>
