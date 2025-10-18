@@ -180,114 +180,29 @@ setplot dc1
 
 <img width="1577" height="742" alt="image" src="https://github.com/user-attachments/assets/d6c14415-5044-4b00-85d7-66c68b327283" />
 
-### 
-The simulation generates timing diagrams showing multiplexer switching behavior based on select signal transitions.
-
-<img width="1919" height="980" alt="GTKWave Waveform Analysis" src="https://github.com/user-attachments/assets/a030863c-a07f-4c28-9dc1-a8963547544a" />
-
-</details>
-
-<details>
-<summary>Verilog Code Analysis</summary>
-
-### Multiplexer Implementation
-```verilog
-module good_mux (input i0, input i1, input sel, output reg y);
-always @ (*)
-begin
-    if(sel)
-        y <= i1;
-    else 
-        y <= i0;
-end
-endmodule
+### Simulate the Circuit
+```
+ngspice day1_nfet_idvds_L2_W5.spice 
+plot -vdd#branch
 ```
 
-## Snapshot 
+<img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/b8fe785e-a465-4d8f-8334-c1f6af77ffc4" />
 
-<img width="1409" height="984" alt="Screenshot 2025-09-26 042945" src="https://github.com/user-attachments/assets/a6469a53-df3d-4b8c-b3bd-2d4c7e0639fe" />
-
-
-### Functional Breakdown
-- **Control Logic**: Select signal determines output routing
-- **Data Path**: Two input channels (i0, i1) multiplexed to single output  
-- **Implementation**: Behavioral modeling using always block with sensitivity list
-- **Combinational Logic**: Output responds immediately to input changes
-
-</details>
-
-<details>
-<summary>Yosys Synthesis Framework</summary>
-
-### Core Capabilities
-Yosys transforms RTL descriptions into gate-level implementations through:
-
-- **Frontend Processing**: Verilog parsing and elaboration
-- **Logic Optimization**: Area and timing improvements
-- **Technology Mapping**: Cell library instantiation  
-- **Backend Generation**: Netlist output in various formats
-
-### Standard Cell Library Variations
-
-| Parameter | Implementation Options |
-|-----------|----------------------|
-| Drive Strength | Low, Medium, High current capabilities |
-| Threshold Voltage | Standard VT, Low VT, High VT variants |
-| Power Profile | Low Power optimized vs High Performance |
-| Area Optimization | Compact, Balanced, Speed-optimized layouts |
-
-Libraries contain multiple gate implementations addressing diverse design requirements including speed, power, and area constraints.
-
-### Yosys Command Sequence
-
-```tcl
-# Initialize Yosys environment
-yosys
-
-# Load technology library
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-# Import RTL design
-read_verilog good_mux.v
-
-# Execute synthesis process
-synth -top good_mux
-
-# Apply technology mapping
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-# Generate schematic visualization  
-show
-
-# Export gate-level netlist
-write_verilog good_mux_netlist.v
-```
-
-## Snapshot
-
-<img width="1919" height="1022" alt="Yosys Initialization" src="https://github.com/user-attachments/assets/a51f9068-2ae2-40a8-bdd4-bfc85747383c" />
-<img width="1919" height="1021" alt="Synthesis Process Output" src="https://github.com/user-attachments/assets/57467f6f-4b32-4336-9411-9dc692d78cec" />
-<img width="1919" height="1021" alt="Gate-Level Schematic" src="https://github.com/user-attachments/assets/3db3b225-1eab-4bf7-8cf2-c325f9a1ca82" />
-
-### Synthesis Output Analysis
-The synthesis tool generates optimized gate-level representation using standard cells from target library, meeting specified design constraints.
+- The plot shows the output characteristics of an NMOS transistor (I_D vs. V_DS for various V_GS values).
+- At low V_DS, the curves are linear (ohmic/triode region); at high V_DS, they flatten (saturation/active region).
+- Increasing V_GS increases the drain current (I_D) for the same V_DS, as shown by higher curves.
 
 </details>
 
 # Learning Outcomes
 
-- Simulation Methodology: Established simulation workflow using open-source tools
-- RTL Verification: Validated design functionality through testbench-driven simulation
-- Synthesis Process: Converted behavioral description to gate-level implementation
-- Tool Proficiency: Gained hands-on experience with industry-standard EDA tools
-- Design Flow Understanding: Comprehended RTL-to-gates transformation process
-
-### Next Steps
-Advance to complex sequential designs, timing analysis, and physical implementation in subsequent workshop sessions.
-
+- Understand the physical structure and terminals of an NMOS transistor.
+- Apply first-order equations to model NMOS current-voltage characteristics.
+- Use cell characterization to optimize timing and power in VLSI circuits.
+- Analyze NMOS behavior and parameters using SPICE device equations.
+- Recognize and utilize NMOS operation in the linear (resistive) region for analog applications.
 
 ---
 
-**Workshop Status**: Day 1 Complete | **Next Topic**: Advanced Synthesis Techniques and Timing Analysis
-
+**Workshop Status**: Day 1 Complete 
 ---
