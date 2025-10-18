@@ -265,6 +265,8 @@ ngspice day5_inv_devicevariation_wp7_wn042.spice
 
 ---
 
+</details>
+
 ## Learning Outcomes
 
 - Understand how CMOS inverter VTC and gain are affected by changes in power supply voltage.
