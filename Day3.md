@@ -239,6 +239,6 @@ plot out vs time in
 - Analyze the effect of device sizing on Vm, rise/fall times, and propagation delays.
 - Gain practical skills in performing static (VTC) and dynamic (transient) SPICE simulations for timing analysis.
 
-**Workshop Status**: Day 2 Complete 
+**Workshop Status**: Day 3 Complete 
 
 ---
