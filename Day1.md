@@ -1,4 +1,4 @@
-# Day 1: Basic of NMOS
+# Day 1: Introduction to Spice and NMOS basics
 
 This comprehensive guide covers basic of NMOS, Drain Current (Id) vs Drain-to-Source Voltage (Vds), Introduction to Circuit design and Spice simulations.
 
